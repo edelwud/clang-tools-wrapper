@@ -1,0 +1,24 @@
+name: Create release if neaded
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  run-build-if-needed:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: MontyD/package-json-updated-action
+        id: version-updated
+        with:
+          path: package.json
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: marvinpinto/action-automatic-releases@latest
+        if: steps.version-updated.outputs.has-updated
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          automatic_release_tag: ${{ steps.version-updated.outputs.current-package-version }}
+          prerelease: false
+          title: 'Release ${{ steps.version-updated.outputs.current-package-version }}'
