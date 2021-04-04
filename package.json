@@ -1,6 +1,6 @@
 {
   "name": "clang-tools-wrapper",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Clang extra tools javascript wrapper",
   "main": "lib/index.js",
   "scripts": {
