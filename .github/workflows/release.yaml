@@ -8,7 +8,7 @@ jobs:
   run-build-if-needed:
     runs-on: ubuntu-latest
     steps:
-      - uses: MontyD/package-json-updated-action
+      - uses: MontyD/package-json-updated-action@latest
         id: version-updated
         with:
           path: package.json
