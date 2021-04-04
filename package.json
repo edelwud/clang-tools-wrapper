@@ -1,0 +1,23 @@
+{
+  "name": "clang-tools-wrapper",
+  "version": "1.0.2",
+  "description": "Clang extra tools javascript wrapper",
+  "main": "lib/index.js",
+  "scripts": {
+    "postinstall": "node ./lib/postinstall"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/edelwud/clang-tools-wrapper.git"
+  },
+  "keywords": [
+    "clang",
+    "clang-tools-extra"
+  ],
+  "author": "edelwud",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/edelwud/clang-tools-wrapper/issues"
+  },
+  "homepage": "https://github.com/edelwud/clang-tools-wrapper#readme"
+}
