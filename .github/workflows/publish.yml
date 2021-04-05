@@ -17,6 +17,7 @@ jobs:
     - run: npm publish --access public
       env:
         NODE_AUTH_TOKEN: ${{ secrets.NPM_ACCESS }}
+      continue-on-error: true
 
     - uses: actions/setup-node@v1
       with:
@@ -25,3 +26,4 @@ jobs:
     - run: npm publish
       env:
         NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      continue-on-error: true
