@@ -8,9 +8,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/edelwud/clang-tools-wrapper.git"
+    "url": "https://github.com/edelwud/clang-tools-wrapper.git"
   },
   "publishConfig": {
+    "name": "@edelwud/clang-tools-wrapper",
     "registry": "https://npm.pkg.github.com/edelwud"
   },
   "keywords": [
