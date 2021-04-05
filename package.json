@@ -1,5 +1,5 @@
 {
-  "name": "@edelwud/clang-tools-wrapper",
+  "name": "clang-tools-wrapper",
   "version": "1.0.8",
   "description": "Clang extra tools javascript wrapper",
   "main": "lib/index.js",
@@ -8,11 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/edelwud/clang-tools-wrapper.git"
-  },
-  "publishConfig": {
-    "name": "@edelwud/clang-tools-wrapper",
-    "registry": "https://npm.pkg.github.com/edelwud"
+    "url": "git+ssh://git@github.com/edelwud/clang-tools-wrapper.git"
   },
   "keywords": [
     "clang",
