@@ -2,7 +2,7 @@
 
 ## Installation
 
-`npm i clang-tools-wrapper`
+`npm i @edelwud/clang-tools-wrapper`
 
 ## Description
 
