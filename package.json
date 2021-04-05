@@ -10,6 +10,9 @@
     "type": "git",
     "url": "git+ssh://git@github.com/edelwud/clang-tools-wrapper.git"
   },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "keywords": [
     "clang",
     "clang-tools-extra"
