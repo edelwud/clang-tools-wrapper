@@ -54,19 +54,23 @@ Examples of usage `clang-tools-wrapper` library
 ### Clang Format
 
 ```javascript
-const { ClangFormat, options, environment } = require('clang-tools-wrapper')
+const { ClangFormat, ClangFormatConfig } = require('clang-tools-wrapper')
 
 const { join } = require('path')
 const fs = require('fs')
 
-const filedir = join(process.cwd(), 'tests')
-const filepath = join(filedir, 'sample.cpp')
+const filedir = join(process.cwd(), 'path', 'to', 'file')
+const filepath = join(filedir, 'file.cpp')
 const content = fs.readFileSync(filepath)
 
-const editorConfig = options.generateEditorConfig(filepath, 0, 'LLVM', 'Google')
-const execConfig = options.generateExecConfig(content, filedir)
+const clangFormat = new ClangFormat()
+const config = new ClangFormatConfig({
+  style: 'LLVM',
+  cursor: 12,
+  input: content,
+  cwd: filedir,
+  assumeFilename: filepath,
+})
 
-const clangFormat = new ClangFormat(environment)
-
-console.log(clangFormat.format(editorConfig, execConfig))
+console.log(clangFormat.format(config))
 ```

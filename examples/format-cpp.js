@@ -1,4 +1,4 @@
-const { ClangFormat, options } = require('../lib')
+const { ClangFormat, ClangFormatConfig } = require('../lib')
 
 const { join } = require('path')
 const fs = require('fs')
@@ -13,10 +13,15 @@ fs.readdir(sourceDir, (err, sources) => {
     const sourcePath = join(sourceDir, source)
     const content = fs.readFileSync(sourcePath)
 
-    options.supportedStyles.forEach((style) => {
-      const editorConfig = options.generateEditorConfig(sourcePath, 0, style, 'Google')
-      const execConfig = options.generateExecConfig(content, sourceDir)
-      const { result } = clangFormat.format(editorConfig, execConfig)
+    ClangFormatConfig.supportedStyles().forEach((style) => {
+      const config = new ClangFormatConfig({
+        style,
+        cursor: 12,
+        input: content,
+        cwd: sourceDir,
+        assumeFilename: sourcePath,
+      })
+      const { result } = clangFormat.format(config)
 
       const filename = source.split('.')[0]
       const extension = source.split('.')[1]
