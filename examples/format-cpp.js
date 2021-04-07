@@ -1,10 +1,9 @@
-const { ClangFormat, options, Environment } = require('../lib')
+const { ClangFormat, options } = require('../lib')
 
 const { join } = require('path')
 const fs = require('fs')
 
-const env = new Environment()
-const clangFormat = new ClangFormat(env.resolve())
+const clangFormat = new ClangFormat()
 
 const sourceDir = join(__dirname, 'sources')
 const resultDir = join(__dirname, 'results')
