@@ -37,7 +37,7 @@ declare module '@edelwud/clang-tools-wrapper' {
   export class ClangFormat {
     constructor()
     format(editorConfig: string, execConfig: ExecConfig): FormatterResponse
-    help(): string
     exec(editorConfig: string, execConfig: ExecConfig): string
+    help(): string
   }
 }
