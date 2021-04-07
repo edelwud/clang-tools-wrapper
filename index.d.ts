@@ -10,6 +10,21 @@ interface Env {
   revision: number
 }
 
+interface ExecConfig {
+  input: string
+  cwd: string
+}
+
+interface FormatterCommand {
+  Cursor: number
+  IncompleteFormat: boolean
+}
+
+interface FormatterResponse {
+  command: FormatterCommand
+  result: string
+}
+
 declare module '@edelwud/clang-tools-wrapper' {
   export class Environment {
     constructor(binDir?: string, revision?: number)
@@ -19,5 +34,10 @@ declare module '@edelwud/clang-tools-wrapper' {
     getExtension(): Extension
     resolve(): Env
   }
-  export class ClangFormat {}
+  export class ClangFormat {
+    constructor()
+    format(editorConfig: string, execConfig: ExecConfig): FormatterResponse
+    help(): string
+    exec(editorConfig: string, execConfig: ExecConfig): string
+  }
 }
