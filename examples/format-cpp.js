@@ -9,11 +9,11 @@ const sourceDir = join(__dirname, 'sources')
 const resultDir = join(__dirname, 'results')
 
 fs.readdir(sourceDir, (err, sources) => {
-  sources.forEach(source => {
+  sources.forEach((source) => {
     const sourcePath = join(sourceDir, source)
     const content = fs.readFileSync(sourcePath)
 
-    options.supportedStyles.forEach(style => {
+    options.supportedStyles.forEach((style) => {
       const editorConfig = options.generateEditorConfig(sourcePath, 0, style, 'Google')
       const execConfig = options.generateExecConfig(content, sourceDir)
       const { result } = clangFormat.format(editorConfig, execConfig)
