@@ -25,6 +25,28 @@ interface FormatterResponse {
   result: string
 }
 
+type ClangFormatStyles = 'Google' | 'LLVM' | 'Chromium' | 'Mozilla' | 'WebKit'
+
+interface ClangFormatFeatures {
+  WError?: boolean
+  WnoError?: number
+  assumeFilename?: string
+  cursor?: number
+  dryOn?: boolean
+  dumpConfig?: boolean
+  fallbackStyle?: ClangFormatStyles
+  fErrorLimit?: number
+  style?: ClangFormatStyles
+  help?: boolean
+  input: string
+  cwd: string
+}
+
+interface ClangFormatEditExec {
+  exec: string
+  editor: string
+}
+
 declare module '@edelwud/clang-tools-wrapper' {
   export class Environment {
     constructor(binDir?: string, revision?: number)
@@ -36,8 +58,13 @@ declare module '@edelwud/clang-tools-wrapper' {
   }
   export class ClangFormat {
     constructor()
-    format(editorConfig: string, execConfig: ExecConfig): FormatterResponse
+    format(clangConfig: ClangFormatConfig): FormatterResponse
     exec(editorConfig: string, execConfig: ExecConfig): string
     help(): string
+  }
+  export class ClangFormatConfig {
+    constructor(config: ClangFormatFeatures)
+    generate(): ClangFormatEditExec
+    static supportedStyles(): ClangFormatStyles[]
   }
 }
