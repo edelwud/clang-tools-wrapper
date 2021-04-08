@@ -1,4 +1,6 @@
 .github
 .bin
 .prettierrc
+README.md
 examples
+tests
