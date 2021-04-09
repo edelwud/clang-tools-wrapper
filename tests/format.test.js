@@ -21,11 +21,9 @@ int main() {
 
     const config = new ClangFormatConfig({
       style: 'Google',
-      input: notFormatted,
-      cwd: __dirname,
     })
 
-    const { result } = clangFormat.format(config)
+    const { result } = clangFormat.format(notFormatted, config)
 
     expect(result).toBe(formatted)
   })
@@ -42,11 +40,9 @@ int main() {
 
     const config = new ClangFormatConfig({
       style: 'LLVM',
-      input: notFormatted,
-      cwd: __dirname,
     })
 
-    const { result } = clangFormat.format(config)
+    const { result } = clangFormat.format(notFormatted, config)
 
     expect(result).toBe(formatted)
   })
@@ -63,11 +59,9 @@ int main() {
 
     const config = new ClangFormatConfig({
       style: 'Chromium',
-      input: notFormatted,
-      cwd: __dirname,
     })
 
-    const { result } = clangFormat.format(config)
+    const { result } = clangFormat.format(notFormatted, config)
 
     expect(result).toBe(formatted)
   })
@@ -86,11 +80,9 @@ main()
 
     const config = new ClangFormatConfig({
       style: 'Mozilla',
-      input: notFormatted,
-      cwd: __dirname,
     })
 
-    const { result } = clangFormat.format(config)
+    const { result } = clangFormat.format(notFormatted, config)
 
     expect(result).toBe(formatted)
   })
@@ -108,11 +100,9 @@ int main()
 
     const config = new ClangFormatConfig({
       style: 'WebKit',
-      input: notFormatted,
-      cwd: __dirname,
     })
 
-    const { result } = clangFormat.format(config)
+    const { result } = clangFormat.format(notFormatted, config)
 
     expect(result).toBe(formatted)
   })

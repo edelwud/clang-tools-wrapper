@@ -67,10 +67,8 @@ const clangFormat = new ClangFormat()
 const config = new ClangFormatConfig({
   style: 'LLVM',
   cursor: 12,
-  input: content,
-  cwd: filedir,
   assumeFilename: filepath,
 })
 
-console.log(clangFormat.format(config))
+console.log(clangFormat.format(content, config))
 ```

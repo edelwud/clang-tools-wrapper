@@ -17,11 +17,10 @@ fs.readdir(sourceDir, (err, sources) => {
       const config = new ClangFormatConfig({
         style,
         cursor: 12,
-        input: content,
         cwd: sourceDir,
         assumeFilename: sourcePath,
       })
-      const { result } = clangFormat.format(config)
+      const { result } = clangFormat.format(content, config)
 
       const filename = source.split('.')[0]
       const extension = source.split('.')[1]
