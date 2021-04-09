@@ -1,4 +1,4 @@
-name: Publish package
+name: Test package and publish
 
 on:
   push:
@@ -12,6 +12,8 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 12
+      - run: npm install
+      - run: npm test
 
   publish-npm:
     needs: build
